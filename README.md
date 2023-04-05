@@ -1,13 +1,5 @@
 ### Hi there 👋
-
-## Group 4 Project 4
- * Stephanie Tran
- * Cristian Jung
- * Ana Gonzalez
- * Rob James
- * Kelly Stave 
- 
-# project-4-health-analysis
+### project-4-health-analysis
 
 ## Project 4 group members
 Ana Gonzalez, Robert James, Cristian M. Jung, Kelly Stave, and Stephanie Tran
