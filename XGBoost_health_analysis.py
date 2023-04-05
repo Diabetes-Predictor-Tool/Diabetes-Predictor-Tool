@@ -16,19 +16,19 @@ import tensorflow as tf
 
 #  Import and read the charity_data.csv.
 import pandas as pd 
-diabetes_df = pd.read_csv(r"C:\Users\Louie\OneDrive\Desktop\uci\project-4-health-analysis\Ana\diabetes_binary_5050split_health_indicators_BRFSS2015.csv")
+diabetes_df = pd.read_csv(r"C:\Users\Louie\OneDrive\Desktop\uci\Diabetes-Predictor-Tool\Resources\diabetes_binary_5050split_health_indicators_BRFSS2015.csv")
 diabetes_df.head()
 
 print(diabetes_df.columns)
 # In[2]:
 
 
-diabetes_binary_df_clean = diabetes_df.drop(columns=['NoDocbcCost ', 'GenHlth ', 'MentHlth ', 'PhysHlth ', 'DiffWalk ', 'CholCheck '])
-diabetes_binary_df_clean = diabetes_binary_df_clean.rename(columns={'Diabetes_binary ': 'Diabetes_binary', 'HighBP ': 'HighBP', 'HighChol ' : 'HighChol',
-                                                                    'BMI  ' : 'BMI', 'Smoker ' : 'Smoker', 'Stroke ' : 'Stroke', 'HeartDiseaseorAttack ' :'HeartDiseaseorAttack',
-                                                                    'PhysActivity ' : 'PhysActivity', 'Fruits ' : 'Fruits', 'Veggies ' : 'Veggies', 'HvyAlcoholConsump ' : 'HvyAlcoholConsump',
-                                                                    'AnyHealthcare ' : 'AnyHealthcare', 'Sex ' : 'Sex', 'Age  ' : 'Age', 'Education ' : 'Education'
-                                                                    })
+diabetes_binary_df_clean = diabetes_df.drop(columns=['NoDocbcCost', 'GenHlth', 'MentHlth', 'PhysHlth', 'DiffWalk', 'CholCheck'])
+# diabetes_binary_df_clean = diabetes_binary_df_clean.rename(columns={'Diabetes_binary ': 'Diabetes_binary', 'HighBP ': 'HighBP', 'HighChol ' : 'HighChol',
+#                                                                     'BMI  ' : 'BMI', 'Smoker ' : 'Smoker', 'Stroke ' : 'Stroke', 'HeartDiseaseorAttack ' :'HeartDiseaseorAttack',
+#                                                                     'PhysActivity ' : 'PhysActivity', 'Fruits ' : 'Fruits', 'Veggies ' : 'Veggies', 'HvyAlcoholConsump ' : 'HvyAlcoholConsump',
+#                                                                     'AnyHealthcare ' : 'AnyHealthcare', 'Sex ' : 'Sex', 'Age  ' : 'Age', 'Education ' : 'Education'
+#                                                                     })
 diabetes_binary_df_clean
 
 # In[20]:
@@ -161,10 +161,13 @@ pickle.dump(clf_pickle, open('model.pkl', 'wb'))
 # In[18]:
 
 
-with open('model.pkl', 'rb') as f:
-    data = pickle.load(f)
-    print(data)
+# with open('model.pkl', 'rb') as f:
+#     data = pickle.load(f)
+#     print(data)
 
+#Loading model to compare the results
+model = pickle.load(open('model.pkl','rb'))
+print(model.predict([[0, 1, 0]]))
 
 # In[ ]:
 

@@ -15,7 +15,7 @@
 <body>
          <!-- Action is where the data is sent. In our case, predict page.
      If action is omitted, it assumed to be the current page -->
-     <form action="predict.html" method="post">
+     <form action= templates/predict method="post">
         <p class="question textclr">What is your age?</p>
     	  <input class="age-input textclr" type="number" name="Age" placeholder="Enter your age" required="required" /><br>
         <p class="question textclr">What is your gender?</p>
@@ -77,6 +77,10 @@
 
         <button type="submit" class="btn-submit" onclick="window.location.href='{{ url_for('predict') }}';">Get Results</button>
     </form>
+
+    <br>
+    <br>
+    {{ prediction_text}}
   </main>
  <footer>
   <p>Hi, I'm Wilford Brimley and I have diabeetus.</p>
